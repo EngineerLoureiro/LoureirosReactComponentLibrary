@@ -1,54 +1,27 @@
-# React + TypeScript + Vite
+# 👋 Hello there and welcome to _Engineer Loureiro’s Component Library_
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- This is the first project I upload to GitHub. I started with a component library so i can centralize all the UI components i create in one place, making it easier to integrate with future projects.
 
-Currently, two official plugins are available:
+### 🛠 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 📝 React + TypeScript – component development
 
-## Expanding the ESLint configuration
+- 📦 Vite – fast dev/build setup
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 🎮 Storybook – component documentation and playground
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- 🧪 Jest + React Testing Library – unit testing
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- 🧪 Playwright – end-to-end and visual testing
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- 🎨 Plain CSS (for now) – styling
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### 🗺️ Roadmap
+
+For the near future i intend to:
+
+- Publish this library to npm
+
+- Create a CI/CD pipeline so that i can automate builds and tests
+
+- Create a Dashboard Component for my next project, an application that will show what altcoins are outperforming BTC and ETH
