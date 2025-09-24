@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WatchlistTable matches snapshot (empty state) 1`] = `
+<DocumentFragment>
+  <div
+    class="card"
+  >
+    <table
+      class="table"
+    >
+      <thead>
+        <tr>
+          <th>
+            Symbol
+          </th>
+          <th>
+            Price
+          </th>
+          <th>
+            Chg
+          </th>
+          <th>
+            Chg%
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        class="table-body"
+      />
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`WatchlistTable matches snapshot (with data) 1`] = `
+<DocumentFragment>
+  <div
+    class="card"
+  >
+    <table
+      class="table"
+    >
+      <thead>
+        <tr>
+          <th>
+            Symbol
+          </th>
+          <th>
+            Price
+          </th>
+          <th>
+            Chg
+          </th>
+          <th>
+            Chg%
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        class="table-body"
+      >
+        <tr
+          class="table-item"
+        >
+          <td>
+            SOLBTC
+          </td>
+          <td>
+            0.00310200
+          </td>
+          <td>
+            +0.00002100
+          </td>
+          <td>
+            +0.68%
+          </td>
+        </tr>
+        <tr
+          class="table-item"
+        >
+          <td>
+            BNBBTC
+          </td>
+          <td>
+            0.00918000
+          </td>
+          <td>
+            -0.00006000
+          </td>
+          <td>
+            -0.65%
+          </td>
+        </tr>
+        <tr
+          class="table-item"
+        >
+          <td>
+            LINKETH
+          </td>
+          <td>
+            0.005000
+          </td>
+          <td>
+            +0.000067
+          </td>
+          <td>
+            +1.35%
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;

@@ -6,8 +6,8 @@ import { NavBar } from "./NavBar";
 
 import * as ButtonLayout from "../Button/Button.stories";
 import * as LinkLayout from "../Link/Link.stories";
-import { ButtonProps, Button } from "../Button";
-import { LinkProps, Link } from "../Link";
+import { Button } from "../Button";
+import { Link } from "../Link";
 import React from "react";
 
 //👇 This default export determines where your story goes in the story list
