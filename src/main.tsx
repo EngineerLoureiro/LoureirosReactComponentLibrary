@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 
-import { LinkRoutes, ButtonRoutes } from "./routes";
+import { LinkRoutes, ButtonRoutes, ExpensesByCategoryRoutes } from "./routes";
 import { NavBarRoutes } from "./routes/NavBarRoutes";
 
 createRoot(document.getElementById("root")!).render(
@@ -13,6 +13,7 @@ createRoot(document.getElementById("root")!).render(
         {ButtonRoutes()}
         {LinkRoutes()}
         {NavBarRoutes()}
+        {ExpensesByCategoryRoutes()}
       </Routes>
     </BrowserRouter>
   </StrictMode>
