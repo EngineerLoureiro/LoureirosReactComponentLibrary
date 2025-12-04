@@ -7,7 +7,7 @@ import { fn } from "storybook/test";
 
 //👇 This default export determines where your story goes in the story list
 const meta = {
-  title: "Loureiro'sComponentLibrary/WatchlistTable",
+  title: "Loureiro'sComponentLibrary/LifePortfolio/WatchlistTable",
   component: WatchlistTable,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout

@@ -5,7 +5,7 @@ import { PieChartExpensesByCategory } from "./PieChart";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Loureiro'sComponentLibrary/ExpensesByCategory",
+  title: "Loureiro'sComponentLibrary/LifePortfolio/ExpensesByCategory",
   component: ExpensesByCategory,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],

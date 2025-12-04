@@ -12,7 +12,7 @@ import React from "react";
 
 //👇 This default export determines where your story goes in the story list
 const meta = {
-  title: "Loureiro'sComponentLibrary/NavBar",
+  title: "Loureiro'sComponentLibrary/GreatFrontEndNavBar/NavBar",
   component: NavBar,
   subcomponents: { Button, Link },
   parameters: {
