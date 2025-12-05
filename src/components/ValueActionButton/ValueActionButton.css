@@ -1,0 +1,45 @@
+.value-action-button {
+  display: flex;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #eceff2;
+  box-shadow: 0px 1px 2px 0
+    rgb(0.062745101749897 0.0941176488995552 0.1568627506494522 / 0.05);
+  width: 348px;
+  max-width: 100%;
+}
+
+.value-action-button__button {
+  all: unset;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  background-color: #dcfae6;
+  border-radius: 8px;
+  margin-right: 12px;
+  width: 48px;
+  height: 48px;
+}
+
+.value-action-button__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.value-action-button__title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333e47;
+}
+
+.value-action-button__description {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #516778;
+}
