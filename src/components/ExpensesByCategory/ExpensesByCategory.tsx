@@ -1,9 +1,7 @@
-import { Cell, Pie, PieChart, PieLabelRenderProps } from "recharts";
 import { categories } from "./data";
 import "./ExpensesByCategory.css";
 
 import { useState } from "react";
-import { PieChartExpensesByCategory } from "./PieChart";
 
 export function ExpensesByCategory() {
   const [activePanel, setActivePanel] = useState(-1);
