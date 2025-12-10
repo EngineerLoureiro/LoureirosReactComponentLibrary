@@ -7,7 +7,7 @@ import { fn } from "storybook/test";
 
 //👇 This default export determines where your story goes in the story list
 const meta = {
-  title: "Loureiro'sComponentLibrary/LifePortfolio/Link",
+  title: "Loureiro'sComponentLibrary/GreatFrontEndNavBar/Link",
   component: Link,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout

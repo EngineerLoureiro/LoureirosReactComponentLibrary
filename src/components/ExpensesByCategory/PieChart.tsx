@@ -1,23 +1,9 @@
 import { Cell, Pie, PieChart, PieLabelRenderProps } from "recharts";
-import { categories } from "./data";
 import "./ExpensesByCategory.css";
+import { Category } from "./ExpensesByCategory";
 
 const RADIAN = Math.PI / 180;
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
-
-/* const pieData = [
-  { name: "House", value: 750 },
-  { name: "HouseA", value: 750 },
-  { name: "HouseB", value: 750 },
-  { name: "HouseC", value: 750 },
-]; */
-
-const pieData = categories.map((category) => ({
-  name: category.title,
-  value: category.amount,
-}));
-
-const total = pieData.reduce((acc, current) => acc + current.value, 0);
 
 const renderCustomizedLabel = ({
   cx,
@@ -49,7 +35,20 @@ const renderCustomizedLabel = ({
   );
 };
 
-export function PieChartExpensesByCategory() {
+export type PieChartExpensesByCategoryProps = {
+  categories: Category[];
+};
+
+export function PieChartExpensesByCategory(
+  props: PieChartExpensesByCategoryProps
+) {
+  const { categories } = props;
+  const pieData = categories.map((category) => ({
+    name: category.title,
+    value: category.amount,
+  }));
+
+  const total = pieData.reduce((acc, current) => acc + current.value, 0);
   return (
     <div className="expenses-by-category">
       <PieChart
@@ -82,11 +81,10 @@ export function PieChartExpensesByCategory() {
       </PieChart>
       <div>
         {categories.map((item, index) => {
-          const CategoryIcon = item.symbol;
           return (
-            <div className="expenses-by-category__row">
+            <div key={index} className="expenses-by-category__row">
               <div className="expenses-by-category__category">
-                <span>{<CategoryIcon />}</span>
+                <span>{item.symbol}</span>
                 <span className="expenses-by-category__category-title">
                   {item.title}
                 </span>

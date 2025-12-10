@@ -1,21 +1,26 @@
 import "./ValueCard.css";
 import { FaArrowUp } from "react-icons/fa";
+import { IconType } from "react-icons";
 
-export function ValueCard() {
+export type ValueCardProps = {
+  description: string;
+  value: string;
+  fluctuation: string;
+  fluctuationIcon: React.ReactNode;
+};
+/* <FaArrowUp color="#008000" style={{ marginRight: "4px", lineHeight: "0" }} />; */
+
+export function ValueCard(props: ValueCardProps) {
+  const { description, value, fluctuation, fluctuationIcon } = props;
   return (
     <div className="value-card">
       <div className="value-card__info">
-        <span className="value-card__label">{"Balance"}</span>
-        <span className="value-card__value">{"5,502.45"}</span>
+        <span className="value-card__label">{description}</span>
+        <span className="value-card__value">{value}</span>
       </div>
       <div className="value-card__trend">
-        <span>
-          <FaArrowUp
-            color="#008000"
-            style={{ marginRight: "4px", lineHeight: "0" }}
-          />
-          {`12,5%`}
-        </span>
+        {fluctuationIcon}
+        <span>{`${fluctuation}%`}</span>
       </div>
     </div>
   );

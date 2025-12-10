@@ -1,7 +1,13 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-
-import { ExpensesByCategory } from "./ExpensesByCategory";
-import { PieChartExpensesByCategory } from "./PieChart";
+import type { Meta } from "@storybook/react-vite";
+import {
+  ExpensesByCategory,
+  ExpensesByCategoryProps,
+} from "./ExpensesByCategory";
+import {
+  PieChartExpensesByCategory,
+  PieChartExpensesByCategoryProps,
+} from "./PieChart";
+import { categories } from "./data";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -15,7 +21,7 @@ export default meta;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary = {
-  render: () => (
+  render: (args: ExpensesByCategoryProps) => (
     <div
       style={{
         display: "flex",
@@ -24,16 +30,26 @@ export const Primary = {
       }}
     >
       <div style={{ marginRight: "20px" }}>
-        <ExpensesByCategory />
-      </div>{" "}
-      <PieChartExpensesByCategory />
+        <ExpensesByCategory {...args} />
+      </div>
+      <PieChartExpensesByCategory {...args} />
     </div>
   ),
+  args: {
+    title: "Expenses By Category",
+    description: "Check your expenses detail",
+    dividerTitle: "Category",
+    dividerDescription: "Total amount",
+    categories: categories,
+  },
 };
 export const PieChart = {
-  render: () => (
+  render: (args: PieChartExpensesByCategoryProps) => (
     <div style={{ width: "500px", height: "500px" }}>
-      <PieChartExpensesByCategory />
+      <PieChartExpensesByCategory {...args} />
     </div>
   ),
+  args: {
+    categories: categories,
+  },
 };
