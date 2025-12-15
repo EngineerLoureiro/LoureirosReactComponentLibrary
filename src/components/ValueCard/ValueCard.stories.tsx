@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react-vite";
 import { ValueCard, ValueCardProps } from "./ValueCard";
-import { FaArrowUp } from "react-icons/fa";
+import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -16,7 +16,7 @@ const meta = {
 export default meta;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary = {
+export const Balance = {
   render: (args: ValueCardProps) => <ValueCard {...args} />,
   args: {
     label: "Balance",
@@ -25,6 +25,20 @@ export const Primary = {
     fluctuationIcon: (
       <FaArrowUp
         color="#008000"
+        style={{ marginRight: "4px", lineHeight: "0" }}
+      />
+    ),
+  },
+};
+export const Expenses = {
+  render: (args: ValueCardProps) => <ValueCard {...args} />,
+  args: {
+    label: "Expenses",
+    value: "3,804.06",
+    fluctuation: "9,5",
+    fluctuationIcon: (
+      <FaArrowDown
+        color="red"
         style={{ marginRight: "4px", lineHeight: "0" }}
       />
     ),
