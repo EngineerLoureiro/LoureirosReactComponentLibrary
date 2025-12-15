@@ -1,8 +1,7 @@
 import { Route } from "react-router-dom";
 import { BsHouseFill } from "react-icons/bs";
-import { NavBar } from "../components";
-import { LinkProps } from "../components/Link";
-import { ButtonProps } from "../components/Button";
+import { ButtonProps } from "../components/GreatFrontEndNavBar/Button";
+import { LinkProps, NavBar } from "../components/GreatFrontEndNavBar";
 
 export function NavBarRoutes() {
   const links: LinkProps[] = [

@@ -1,5 +1,5 @@
 import { Route } from "react-router-dom";
-import { Link } from "../components/Link";
+import { Link } from "../components/GreatFrontEndNavBar";
 
 export function LinkRoutes() {
   return (

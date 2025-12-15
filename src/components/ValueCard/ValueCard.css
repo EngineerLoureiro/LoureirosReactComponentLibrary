@@ -9,6 +9,8 @@
   box-shadow: 0px 1px 2px 0
     rgb(0.062745101749897 0.0941176488995552 0.1568627506494522 / 0.05);
   align-items: flex-end;
+  width: 384px;
+  max-width: 100%;
 }
 
 .value-card__info {
@@ -20,7 +22,6 @@
 .value-card__value {
   font-weight: 600;
   font-size: 36px;
-  letter-spacing: -0.125em;
   line-height: 44px;
   color: #155eef;
 }

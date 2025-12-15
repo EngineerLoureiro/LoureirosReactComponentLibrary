@@ -1,5 +1,4 @@
 import "./ValueActionButton.css";
-import { TbCirclePlus } from "react-icons/tb";
 
 export type ValueActionButtonProps = {
   buttonIcon: React.ReactNode;
@@ -11,12 +10,26 @@ export function ValueActionButton(props: ValueActionButtonProps) {
   const { buttonIcon, title, description, onClick } = props;
   return (
     <div className="value-action-button">
-      <button className="value-action-button__button" onClick={onClick}>
+      <button
+        className="value-action-button__button"
+        onClick={onClick}
+        aria-label={`perform action ${title}`}
+      >
         {buttonIcon}
       </button>
       <div className="value-action-button__info">
-        <span className="value-action-button__title">{title}</span>
-        <span className="value-action-button__description">{description}</span>
+        <span
+          data-testid="value-action-button-title"
+          className="value-action-button__title"
+        >
+          {title}
+        </span>
+        <span
+          data-testid="value-action-button-description"
+          className="value-action-button__description"
+        >
+          {description}
+        </span>
       </div>
     </div>
   );

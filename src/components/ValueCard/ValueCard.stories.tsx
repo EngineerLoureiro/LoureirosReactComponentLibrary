@@ -19,7 +19,7 @@ export default meta;
 export const Primary = {
   render: (args: ValueCardProps) => <ValueCard {...args} />,
   args: {
-    description: "Balance",
+    label: "Balance",
     value: "5,502.45",
     fluctuation: "12,5",
     fluctuationIcon: (

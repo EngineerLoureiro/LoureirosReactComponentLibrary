@@ -1,5 +1,5 @@
 import { Route } from "react-router-dom";
-import { Button } from "../components/Button";
+import { Button } from "../components/GreatFrontEndNavBar/Button";
 
 export function ButtonRoutes() {
   return (
