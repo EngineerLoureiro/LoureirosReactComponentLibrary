@@ -1,7 +1,10 @@
 /// <reference types="vitest/config" />
+/// <reference types="vite/client" />
 import { defineConfig } from "vite";
+import { resolve } from "node:path";
 import react from "@vitejs/plugin-react";
 import babel from "vite-plugin-babel";
+import { libInjectCss } from "vite-plugin-lib-inject-css";
 
 // https://vite.dev/config/
 import path from "node:path";
@@ -21,7 +24,26 @@ export default defineConfig({
         plugins: ["babel-plugin-react-compiler"],
       },
     }),
+    libInjectCss(),
   ],
+  build: {
+    lib: {
+      entry: resolve(__dirname, "src/index.ts"),
+      formats: ["es"],
+    },
+    rollupOptions: {
+      external: ["react", "react-dom", "react-router-dom", "react/jsx-runtime"],
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+          "react-router-dom": "ReactRouterDOM",
+          "react/jsx-runtime": "react/jsx-runtime",
+        },
+      },
+    },
+  },
+
   test: {
     projects: [
       {
