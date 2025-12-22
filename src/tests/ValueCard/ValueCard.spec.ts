@@ -1,7 +1,9 @@
 import test, { expect } from "@playwright/test";
 
 test.beforeEach(async ({ page }) => {
-  await page.goto("/components/value-card");
+  await page.goto(
+    "/iframe.html?viewMode=story&id=loureiro-scomponentlibrary-lifeportfolio-valuecard--balance"
+  );
 });
 
 test("Validate ValueCard", async ({ page }) => {

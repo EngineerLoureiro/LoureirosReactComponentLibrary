@@ -19,7 +19,7 @@ export function ValueCard(props: ValueCardProps) {
           {value}
         </span>
       </div>
-      <div className="value-card__trend">
+      <div data-testid="value-card-icon" className="value-card__trend">
         {fluctuationIcon}
         <span data-testid="value-card-fluctuation">{`${fluctuation}%`}</span>
       </div>

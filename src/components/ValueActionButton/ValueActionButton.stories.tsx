@@ -21,7 +21,7 @@ export const AddIncome = {
   args: {
     buttonIcon: <TbCirclePlus color="#008000" />,
     title: "Add Income",
-    description: "Create and Income manually",
+    description: "Create an Income manually",
     onClick: () => {
       alert("Clicked!");
     },
@@ -32,7 +32,7 @@ export const AddExpense = {
   args: {
     buttonIcon: <TbCircleMinus color="red" />,
     title: "Add Expense",
-    description: "Create and Expense manually",
+    description: "Create an Expense manually",
     onClick: () => {
       alert("Clicked!");
     },
