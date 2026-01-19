@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "classnames": "^2.5.1",
+    "react-day-picker": "^9.13.0",
     "recharts": "^3.4.1"
   },
   "peerDependencies": {

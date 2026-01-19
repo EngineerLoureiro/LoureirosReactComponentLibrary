@@ -1,0 +1,154 @@
+.custom-period-selector {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.custom-period-selector__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #eceff2;
+  background: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: #516778;
+  cursor: pointer;
+}
+
+.custom-period-selector__trigger--active {
+  background: #eef6ff;
+  color: #1a73e8;
+}
+
+.custom-period-selector__popover {
+  background: #fff;
+  border: 1px solid #eceff2;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 8px 24px rgba(16, 24, 40, 0.12);
+  width: max-content;
+}
+
+/* DayPicker root */
+.custom-period-selector__calendar {
+  font-family: inherit;
+  color: #516778;
+}
+
+/* Caption + nav */
+.custom-period-selector__caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.custom-period-selector__caption-label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.custom-period-selector__nav {
+  display: flex;
+  gap: 6px;
+}
+
+.custom-period-selector__nav-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid #eceff2;
+  background: #fff;
+  cursor: pointer;
+}
+
+.custom-period-selector__nav-button:hover {
+  background: #f7f8fa;
+}
+
+/* Table spacing — IMPORTANT for range continuity */
+.custom-period-selector__table {
+  border-collapse: separate;
+  border-spacing: 2px; /* ↓ reduced from 6px */
+}
+
+.custom-period-selector__head-cell {
+  font-size: 12px;
+  font-weight: 600;
+  color: #98a2b3;
+  text-align: center;
+  padding-bottom: 4px;
+}
+
+/* Day cells */
+.custom-period-selector__day {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  font-size: 13px;
+  position: relative; /* needed for smooth range */
+}
+
+.custom-period-selector__day:hover {
+  background: #f2f6ff;
+}
+
+.custom-period-selector__day--outside {
+  color: #c6cdd5;
+  cursor: default;
+}
+
+.custom-period-selector__day--today {
+  border-color: #eceff2;
+}
+
+/* ============================= */
+/* Range selection styling */
+/* ============================= */
+
+/* Middle of the range — continuous bar */
+.custom-period-selector__day--range-middle {
+  background: #e8f0fe;
+  color: #516778;
+  border-radius: 0; /* key for continuity */
+}
+
+/* Start / end of range */
+.custom-period-selector__day--selected,
+.custom-period-selector__day--range-start,
+.custom-period-selector__day--range-end {
+  background: #1a73e8;
+  color: #fff;
+}
+
+/* Connect start to middle */
+.custom-period-selector__day--range-start {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Connect end to middle */
+.custom-period-selector__day--range-end {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Single-day range (from === to) */
+.custom-period-selector__day--range-start.custom-period-selector__day--range-end {
+  border-radius: 10px;
+}
+
+/* Prevent hover overriding selected range */
+.custom-period-selector__day--range-start:hover,
+.custom-period-selector__day--range-middle:hover,
+.custom-period-selector__day--range-end:hover {
+  background: inherit;
+}
