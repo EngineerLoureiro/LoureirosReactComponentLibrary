@@ -74,7 +74,7 @@
 /* Table spacing — IMPORTANT for range continuity */
 .custom-period-selector__table {
   border-collapse: separate;
-  border-spacing: 2px; /* ↓ reduced from 6px */
+  border-spacing: 2px;
 }
 
 .custom-period-selector__head-cell {
@@ -85,8 +85,18 @@
   padding-bottom: 4px;
 }
 
-/* Day cells */
+/* ============================= */
+/* Day cell + button */
+/* In your DayPicker version, __day is applied to the TD */
+/* ============================= */
+
 .custom-period-selector__day {
+  padding: 0; /* remove default cell padding */
+  border-radius: 10px;
+}
+
+/* Make the clickable element fill the cell */
+.custom-period-selector__day button {
   width: 36px;
   height: 36px;
   border-radius: 10px;
@@ -94,61 +104,75 @@
   background: transparent;
   cursor: pointer;
   font-size: 13px;
-  position: relative; /* needed for smooth range */
+  color: inherit; /* inherits from TD when we set colors for endpoints */
 }
 
-.custom-period-selector__day:hover {
+/* Hover only affects non-range days (range hover handled below) */
+.custom-period-selector__day button:hover {
   background: #f2f6ff;
 }
 
-.custom-period-selector__day--outside {
+/* Outside / today (your mapping might not land; fallback to rdp- classes) */
+.custom-period-selector__day.rdp-outside button,
+.custom-period-selector__day--outside button {
   color: #c6cdd5;
   cursor: default;
 }
 
-.custom-period-selector__day--today {
+.custom-period-selector__day.rdp-today button,
+.custom-period-selector__day--today button {
   border-color: #eceff2;
 }
 
 /* ============================= */
 /* Range selection styling */
+/* Range classes exist on the TD: rdp-range_* */
 /* ============================= */
 
-/* Middle of the range — continuous bar */
-.custom-period-selector__day--range-middle {
+/* Middle of the range: light strip */
+.custom-period-selector__day.rdp-range_middle {
   background: #e8f0fe;
+  border-radius: 0; /* continuous strip */
   color: #516778;
-  border-radius: 0; /* key for continuity */
 }
 
-/* Start / end of range */
-.custom-period-selector__day--selected,
-.custom-period-selector__day--range-start,
-.custom-period-selector__day--range-end {
+/* Start/End of the range: primary strip */
+.custom-period-selector__day.rdp-range_start,
+.custom-period-selector__day.rdp-range_end {
   background: #1a73e8;
-  color: #fff;
+  color: #fff; /* makes the number white via inherit */
 }
 
-/* Connect start to middle */
-.custom-period-selector__day--range-start {
+/* Connect start/end to the middle by flattening inner corners */
+.custom-period-selector__day.rdp-range_start {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-/* Connect end to middle */
-.custom-period-selector__day--range-end {
+.custom-period-selector__day.rdp-range_end {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
 /* Single-day range (from === to) */
-.custom-period-selector__day--range-start.custom-period-selector__day--range-end {
+.custom-period-selector__day.rdp-range_start.rdp-range_end {
   border-radius: 10px;
 }
 
-/* Prevent hover overriding selected range */
-.custom-period-selector__day--range-start:hover,
-.custom-period-selector__day--range-middle:hover,
-.custom-period-selector__day--range-end:hover {
-  background: inherit;
+/* Prevent hover from overriding the range strip */
+.custom-period-selector__day.rdp-range_start button:hover,
+.custom-period-selector__day.rdp-range_middle button:hover,
+.custom-period-selector__day.rdp-range_end button:hover {
+  background: transparent;
+}
+
+/* Optional: if DayPicker applies rdp-selected on TD */
+
+.custom-period-selector__day.rdp-selected:not(.rdp-range_middle) {
+  background: #1a73e8;
+  color: #fff;
 }

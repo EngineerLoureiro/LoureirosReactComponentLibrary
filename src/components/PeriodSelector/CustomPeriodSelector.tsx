@@ -42,7 +42,7 @@ export function CustomPeriodSelector({
             selected={value}
             onSelect={onChange}
             min={2}
-            max={2}
+            disabled={{ after: new Date(Date.now()) }}
             className="custom-period-selector__calendar"
             classNames={{
               months: "custom-period-selector__months",
@@ -56,15 +56,13 @@ export function CustomPeriodSelector({
               head_cell: "custom-period-selector__head-cell",
               row: "custom-period-selector__row",
               cell: "custom-period-selector__cell",
-              day: "custom-period-selector__day",
+              day: "custom-period-selector__day", // in your version this ends up on TD
               day_today: "custom-period-selector__day--today",
               day_outside: "custom-period-selector__day--outside",
               day_selected: "custom-period-selector__day--selected",
               day_range_start: "custom-period-selector__day--range-start",
               day_range_middle: "custom-period-selector__day--range-middle",
               day_range_end: "custom-period-selector__day--range-end",
-              // optional, if supported by your version:
-              // day_disabled: "custom-period-selector__day--disabled",
             }}
           />
         </div>
