@@ -1,19 +1,17 @@
 import { CiCalendarDate } from "react-icons/ci";
-import { useState } from "react";
 import { DayPicker, type DateRange } from "react-day-picker";
 import classNames from "classnames";
 import "./CustomPeriodSelector.css";
 
 export interface CustomPeriodSelectorProps {
-  value: DateRange | undefined;
+  date: DateRange | undefined;
   onChange: (range: DateRange | undefined) => void;
+  isOpen?: boolean;
+  toogleOpen: () => void;
 }
 
-export function CustomPeriodSelector({
-  value,
-  onChange,
-}: CustomPeriodSelectorProps) {
-  const [isOpen, setIsOpen] = useState(false);
+export function CustomPeriodSelector(props: CustomPeriodSelectorProps) {
+  const { date, onChange, isOpen, toogleOpen } = props;
 
   return (
     <div className="custom-period-selector">
@@ -21,9 +19,9 @@ export function CustomPeriodSelector({
         type="button"
         className={classNames(
           "custom-period-selector__trigger",
-          isOpen && "custom-period-selector__trigger--active"
+          (isOpen || date) && "custom-period-selector__trigger--active"
         )}
-        onClick={() => setIsOpen((p) => !p)}
+        onClick={toogleOpen}
       >
         <CiCalendarDate className="custom-period-selector__trigger-icon" />
         <span className="custom-period-selector__trigger-label">
@@ -39,10 +37,10 @@ export function CustomPeriodSelector({
         >
           <DayPicker
             mode="range"
-            selected={value}
+            selected={date}
             onSelect={onChange}
             min={2}
-            disabled={{ after: new Date(Date.now()) }}
+            disabled={{ after: new Date() }}
             className="custom-period-selector__calendar"
             classNames={{
               months: "custom-period-selector__months",

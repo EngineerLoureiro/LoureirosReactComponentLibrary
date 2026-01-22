@@ -1,50 +1,63 @@
 import type { Meta } from "@storybook/react-vite";
 
-import { PeriodSelector } from "./PeriodSelector";
 import { CustomPeriodSelector } from "./CustomPeriodSelector";
 import { useState } from "react";
-import { DateRange } from "react-day-picker";
+import { PeriodSelectorState } from "./types";
+import { PresetPeriodSelector } from "./PresetPeriodSelector";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: "Loureiro'sComponentLibrary/LifePortfolio/PeriodSelector",
-  component: PeriodSelector,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
-} satisfies Meta<typeof PeriodSelector>;
+};
 
 export default meta;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const PresetPeriodSelector = {
+export const CombineCustomAndPresetSelector = {
   render: () => {
-    const [option, setOption] = useState<string>("No option");
-    return (
-      <PeriodSelector
-        value={option}
-        onChange={(value) => {
-          setOption(value);
-        }}
-      />
-    );
-  },
-};
+    const [type, setType] = useState<PeriodSelectorState>({
+      type: "preset",
+      preset: "this_month",
+    });
 
-export const DateRangePeriodSelector = {
-  render: () => {
-    const [date, setDate] = useState<DateRange | undefined>(undefined);
+    const presetSelectorValue =
+      type.type === "preset" ? type.preset : undefined;
+
+    const customSelectorValue = type.type === "custom" ? type.range : undefined;
+
+    const customSelectorIsOpen = type.type === "custom" ? type.open : false;
+    console.log(presetSelectorValue || customSelectorValue);
     return (
-      <CustomPeriodSelector
-        value={date}
-        onChange={(date) => {
-          console.log(date);
-          setDate(date);
-        }}
-      />
+      <>
+        <PresetPeriodSelector
+          value={presetSelectorValue}
+          onChange={(value) => {
+            setType({ type: "preset", preset: value });
+          }}
+        />
+
+        <CustomPeriodSelector
+          date={customSelectorValue}
+          isOpen={customSelectorIsOpen}
+          toogleOpen={() =>
+            setType((prev) => {
+              if (prev.type === "custom") {
+                return { ...prev, open: !prev.open };
+              }
+              return { type: "custom", range: undefined, open: true };
+            })
+          }
+          onChange={(date) => {
+            console.log(date);
+            setType({ type: "custom", range: date, open: true });
+          }}
+        />
+      </>
     );
   },
 };

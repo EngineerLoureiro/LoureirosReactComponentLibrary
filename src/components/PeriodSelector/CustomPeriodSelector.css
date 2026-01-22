@@ -86,8 +86,11 @@
 }
 
 /* ============================= */
+
 /* Day cell + button */
+
 /* In your DayPicker version, __day is applied to the TD */
+
 /* ============================= */
 
 .custom-period-selector__day {
@@ -107,26 +110,29 @@
   color: inherit; /* inherits from TD when we set colors for endpoints */
 }
 
+/* Outside / today (your mapping might not land; fallback to rdp- classes) */
+.custom-period-selector__day--outside button,
+.custom-period-selector__day.rdp-outside button {
+  color: #c6cdd5;
+  cursor: default;
+}
+
 /* Hover only affects non-range days (range hover handled below) */
 .custom-period-selector__day button:hover {
   background: #f2f6ff;
 }
 
-/* Outside / today (your mapping might not land; fallback to rdp- classes) */
-.custom-period-selector__day.rdp-outside button,
-.custom-period-selector__day--outside button {
-  color: #c6cdd5;
-  cursor: default;
-}
-
-.custom-period-selector__day.rdp-today button,
-.custom-period-selector__day--today button {
+.custom-period-selector__day--today button,
+.custom-period-selector__day.rdp-today button {
   border-color: #eceff2;
 }
 
 /* ============================= */
+
 /* Range selection styling */
+
 /* Range classes exist on the TD: rdp-range_* */
+
 /* ============================= */
 
 /* Middle of the range: light strip */
