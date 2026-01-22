@@ -12,3 +12,13 @@ export type { ValueActionButtonProps } from "./components/ValueActionButton";
 
 export { ValueCard } from "./components/ValueCard";
 export type { ValueCardProps } from "./components/ValueCard";
+
+export {
+  PresetPeriodSelector,
+  CustomPeriodSelector,
+} from "./components/PeriodSelector/";
+
+export type {
+  PresetKey,
+  PeriodSelectorState,
+} from "./components/PeriodSelector/";
